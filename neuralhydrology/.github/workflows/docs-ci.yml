@@ -1,0 +1,28 @@
+name: "docs check"
+on: 
+  pull_request:
+    branches: 
+      - master
+      - public
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+    - name: Install pandoc
+      run: |
+        sudo apt-get update -y && sudo apt-get install -y pandoc
+    - name: Install dependencies
+      working-directory: environments
+      run: |
+        pip install -r rtd_requirements.txt
+    - name: Build Sphinx docs
+      working-directory: docs/
+      env:
+        SPHINXOPTS: "-W"  # treat warnings as errors
+      run: |
+        make html

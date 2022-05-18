@@ -1,0 +1,79 @@
+batch_size: 256
+cache_validation_data: true
+clip_gradient_norm: 1
+commit_hash: d72b032
+custom_normalization:
+data_dir: /datadrive/data/CAMELS_GB_DATASET
+dataset: camels_gb
+device: cuda:0
+dynamic_inputs:
+- precipitation
+- peti
+- temperature
+dynamics_embedding:
+epochs: 30
+experiment_name: one_catchment_test_80004-85003-89002-89005-89007-92001-12009-33032-33054-34004-34011-34012-101002-52010_1
+head: regression
+hidden_size: 64
+img_log_dir: /datadrive/data/runs/complexity_AZURE/hs_064_0306_205514/img_log
+initial_forget_bias: 3
+learning_rate:
+  0: 0.001
+  10: 0.0005
+  20: 0.0001
+log_interval: 10
+log_n_figures: 1
+log_tensorboard: false
+loss: NSE
+metrics:
+- NSE
+- KGE
+model: cudalstm
+num_workers: 8
+number_of_basins: 669
+optimizer: Adam
+output_activation: linear
+output_dropout: 0.4
+package_version: 1.0.0-beta3
+predict_last_n: 1
+run_dir: /datadrive/data/runs
+save_weights_every: 1
+seed: 1
+seq_length: 365
+static_attributes:
+- area
+- elev_mean
+- dpsbar
+- sand_perc
+- silt_perc
+- clay_perc
+- porosity_hypres
+- conductivity_hypres
+- soil_depth_pelletier
+- dwood_perc
+- ewood_perc
+- crop_perc
+- urban_perc
+- p_mean
+- pet_mean
+- p_seasonality
+- frac_snow
+- high_prec_freq
+- low_prec_freq
+- low_prec_dur
+statics_embedding:
+target_variables:
+- discharge_spec
+test_basin_file: /home/tommy/neuralhydrology/data/single_basin_80004-85003-89002-89005-89007-92001-12009-33032-33054-34004-34011-34012-101002-52010_1.txt
+test_end_date: 31/12/2008
+test_start_date: 01/01/1998
+train_basin_file: /home/tommy/neuralhydrology/data/single_basin_80004-85003-89002-89005-89007-92001-12009-33032-33054-34004-34011-34012-101002-52010_1.txt
+train_dir: /datadrive/data/runs/complexity_AZURE/hs_064_0306_205514/train_data
+train_end_date: 31/12/1997
+train_start_date: 01/10/1980
+use_basin_id_encoding: false
+validate_every: 10
+validate_n_random_basins: 1
+validation_basin_file: /home/tommy/neuralhydrology/data/camels_gb_basin_list.txt
+validation_end_date: 30/09/1980
+validation_start_date: 01/10/1975
