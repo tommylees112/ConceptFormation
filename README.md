@@ -5,12 +5,6 @@ The results that this code produces can be found on [zenodo here](https://zenodo
 
 **neuralhydrology**: [deep learning codebase copied at version for paper](https://neuralhydrology.readthedocs.io/en/latest/) that includes the LSTM used in this paper
 
-# Notebooks
-There are a lot of experimental notebooks. The important notebooks are:
-1) The main body of Results: `notebooks/19a_ERA5_land_probes.ipynb`
-1) Appendix B: Probing the ESA CCI Soil Moisture `notebooks/19b_ESA_CCI_probes.ipynb`
-1) Appendix C: Investigating the Catchment Specific Probe Offsets `notebooks/19c_FIX_Probe_Offsets.ipynb`
-
 # Scripts
 **cell_state**: functions used in the notebooks for training linear probes
 1) `scripts/cell_state/extract_cell_state.py` -- from a neuralhydrology trained model path, save the cell_states associated with that model for each basin
